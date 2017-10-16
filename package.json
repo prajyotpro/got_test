@@ -1,0 +1,47 @@
+{
+  "name": "node_custom",
+  "version": "1.0.0",
+  "description": "RESTfull API",
+  "main": "app/server.js",
+  "scripts": {
+    "start": "NODE_ENV=local node app/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "keywords": [
+    "GOT"
+  ],
+  "author": "Prajyot Khandeparkar",
+  "bugs": {
+    "url": "https://github.com/prajyotpro/node_custom/issues"
+  },
+  "homepage": "https://github.com/prajyotpro/node_custom#readme",
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.0.0",
+    "express": "4.15.2",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "gulp-yaml": "^1.0.1",
+    "helmet": "^3.9.0",
+    "mongoose": "^4.12.1",
+    "node-emoji": "^1.7.0",
+    "path": "^0.12.7",
+    "socket.io": "2.0.3",
+    "socket.io-redis": "^5.1.0",
+    "socketio-sticky-session": "^0.4.2",
+    "sticky-cluster": "^0.3.1",
+    "sticky-session": "^1.1.2",
+    "underscore": "^1.8.3",
+    "validator": "^7.1.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "gulp-watch": "^4.3.11",
+    "gulp-yaml": "^1.0.1"
+  }
+}
