@@ -11,7 +11,7 @@ gulp.task('nodeMon', function () {
 	nodemon({
 		script: './app/server.js',
 		ext: 'js',
-		env: { 'NODE_ENV': 'local' }
+		env: { 'NODE_ENV': 'development' }
 	})
 });
 

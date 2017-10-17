@@ -3,6 +3,5 @@ exports.security = {
 };
 
 exports.server = {
-    port    : 3030,
-    path    : 'http://localhost:3030/'
+    port    : 3030
 };

@@ -4,7 +4,7 @@
   "description": "RESTfull API",
   "main": "app/server.js",
   "scripts": {
-    "start": "NODE_ENV=local node app/server.js",
+    "start": "NODE_ENV=development node app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {},

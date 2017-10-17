@@ -1,9 +1,6 @@
 var config 			= require('../config/app');
 var mongoose    = require('mongoose');
 
-// Models
-// var models 			= require('../models');
-
 var Battle = function() {
 };
 
@@ -11,18 +8,15 @@ Battle.prototype.constructor = Battle;
 
 Battle.prototype.getBattlePlaces = function(req, res) {
 
-	mongoose.model('battles').getBattlePlaces(false, function(err, places) {
+		mongoose.model('battles').getBattlePlaces(false, function(err, places) {
 
-		if (err) {
-				console.log(err);
-				return res.status(500);
-		}
-    // res.send(users);
-		return res.status(200).send(places);
-  });
+			if (err) {
+					console.log(err);
+					return res.status(500);
+			}
 
-	// console.log(User.prototype.authenticate());
-	// return res.status(200).send({"users":"hii so many users!! LOL :D "});
+			return res.status(200).send(places);
+	  });
 };
 
 Battle.prototype.getBattleCount = function(req, res) {

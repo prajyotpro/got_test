@@ -1,7 +1,6 @@
 var cluster     = require('cluster'); // Only required if you want the worker id
 var sticky      = require('sticky-session');
 var config      = require('./config/app');
-// var models      = require('./models');
 
 
 var http        = require('http');
@@ -13,21 +12,22 @@ var server      = require('http').createServer(app);
 var io          = require('socket.io')(server);
 
 
+// Application port
 var port        = process.env.PORT || config.server.port;
-
 
 var bodyParser  = require('body-parser');
 var helmet      = require('helmet');
-// var path        = require('path');
-// var multer      = require('multer');
 var multipart   = require('connect-multiparty');
-
-console.log(process.env.NODE_ENV);
-var mongoose    = require('mongoose');
-
-mongoose.connect('mongodb://arya:northremembers@ds153113.mlab.com:53113/gameofthrones');
-
 var fs          = require('fs');
+
+
+// Database configurations
+var database    = require('./config/database');
+database = database.getDatabase(process.env.NODE_ENV);
+
+var mongoose    = require('mongoose');
+// Make database connection and model setup
+mongoose.connect('mongodb://'+database.username+':'+database.password+'@'+database.host+':'+database.port+'/'+database.database);
 fs.readdirSync(__dirname + '/models').forEach(function(filename) {
     if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 });
@@ -37,12 +37,11 @@ fs.readdirSync(__dirname + '/models').forEach(function(filename) {
 var battleRouter               = require('../app/routes/battle');
 
 
+//
 if (!sticky.listen(server, port)) {
 
     // Master code
     server.once('listening', function () {
-
-
     });
 
 } else {
@@ -66,10 +65,5 @@ if (!sticky.listen(server, port)) {
 
 
     // ========================================== SOCKET ==========================================
-    var chat = io
-        .of('/chat')
-        .on('connection', function (socket) {
-            console.log('Socket connected.');
-            chat.emit('connected', { success: true });
-        });
+
 }
