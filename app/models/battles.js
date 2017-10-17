@@ -32,7 +32,7 @@ var battlesSchema = new Schema({
 
 battlesSchema.statics.getBattlePlaces = function(queryParams, callback) {
 
-    this.find().distinct('location', '{ "location" : { $nin : ["", null] } }', function(err, locations) {
+    this.find().distinct('location', { 'location' : { $nin : ['', null] } }, function(err, locations) {
 
         if (err) {
             console.log(err);

@@ -1,5 +1,5 @@
 {
-  "name": "node_custom",
+  "name": "node_got",
   "version": "1.0.0",
   "description": "RESTfull API",
   "main": "app/server.js",
